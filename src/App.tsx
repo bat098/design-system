@@ -1,16 +1,33 @@
 import { useState } from 'react';
-import Checkbox from './components/Checkbox/Checkbox';
+import RadioBoxGroup from './components/RadioBoxGroup/RadioBoxGroup';
+import { RadioBoxGroupType } from './components/RadioBoxGroup/RadioBoxGroup.types';
 
 const App = () => {
-  const [value, setValue] = useState(true);
+  const [value, setValue] = useState('cat');
 
-  const handleOnChange = () => {
-    setValue((prev) => !prev);
-  };
+  const items: RadioBoxGroupType['items'] = [
+    {
+      label: 'cat',
+      value: 'cat',
+      color: 'danger',
+    },
+    {
+      label: 'dog',
+      value: 'dog',
+    },
+  ];
+
   return (
-    <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-      <Checkbox value={value} onChange={handleOnChange} />
-    </div>
+    <>
+      <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+        <RadioBoxGroup
+          items={items}
+          value={value}
+          name="group2"
+          onChange={setValue}
+        />
+      </div>
+    </>
   );
 };
 
