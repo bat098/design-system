@@ -1,16 +1,20 @@
-import { PickAttributeFromHTMLElement } from './../../types';
+import { RuleSet } from 'styled-components';
+import { Colors, Size } from '../../@types/styled';
+import { ExcludeKeys, PickAttributeFromHTMLElement } from './../../types';
 
-export type ChecboxOwnType = {
+export type CheckBoxType = {
   value?: boolean;
   onChange?: PickAttributeFromHTMLElement<'input', 'onChange'>;
-};
-
-export type CheckBoxWithChildren = ChecboxOwnType & {
-  children?: React.ReactNode;
-};
-
-export type CheckBoxWithoutChildren = ChecboxOwnType & {
   id?: PickAttributeFromHTMLElement<'input', 'id'>;
+  size?: Size;
+  disabled?: boolean;
+  isError?: boolean;
+  color?: keyof ExcludeKeys<Colors, 'white' | 'lightGray'>;
 };
 
-export type CheckBoxType = CheckBoxWithChildren | CheckBoxWithoutChildren;
+export type CustomInpuType = Pick<
+  CheckBoxType,
+  'size' | 'value' | 'disabled' | 'isError' | 'color'
+>;
+
+export type PickSizeType = (size: Size | undefined) => RuleSet<object>;

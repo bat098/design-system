@@ -1,74 +1,49 @@
-import styled from 'styled-components';
-import { CheckBoxType, CheckBoxWithChildren } from './Checkbox.types';
-
+import { CheckBoxType } from './Checkbox.types';
 import { VscCheck } from 'react-icons/vsc';
+import { useRef } from 'react';
+import { CustomInput, Input, Wrapper } from './Checkbox.styled';
 
 const Checkbox = (props: CheckBoxType) => {
-  const hasChildren = (props: CheckBoxType): props is CheckBoxWithChildren => {
-    return (props as CheckBoxWithChildren).children !== undefined;
+  const {
+    disabled = false,
+    value = false,
+    onChange,
+    size = 'medium',
+    isError = false,
+    color = 'primary',
+    ...rest
+  } = props;
+
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const handleClick = () => {
+    if (inputRef.current) {
+      inputRef.current.click();
+    }
   };
 
-  const { value = false, onChange } = props;
-
-  const isChildren = hasChildren(props);
-
-  console.log(props);
-
   return (
-    <>
-      {isChildren ? (
-        <Label>
-          <Input type="checkbox" checked={value} onChange={onChange} />
-          <CustomInput value={value}>
-            <VscCheck />
-          </CustomInput>
-          {props.children}
-        </Label>
-      ) : (
-        <div>
-          <Input
-            id={props.id}
-            type="checkbox"
-            checked={value}
-            onChange={onChange}
-          />
-          <CustomInput value={value}>
-            <VscCheck />
-          </CustomInput>
-        </div>
-      )}
-    </>
+    <Wrapper onClick={handleClick}>
+      <Input
+        ref={inputRef}
+        id={props.id}
+        type="checkbox"
+        checked={value}
+        onChange={onChange}
+        disabled={disabled}
+        {...rest}
+      />
+      <CustomInput
+        value={value}
+        size={size}
+        disabled={disabled}
+        isError={isError}
+        color={color}
+      >
+        <VscCheck />
+      </CustomInput>
+    </Wrapper>
   );
 };
 
 export default Checkbox;
-
-const Label = styled.label``;
-
-const CustomInput = styled.div<{ value: boolean }>`
-  color: ${(props) => props.theme.colors.white};
-  background-color: ${(props) =>
-    props.value ? props.theme.colors.primary : props.theme.colors.white};
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.6rem;
-  height: 1.6rem;
-  font-size: 1.6rem;
-  border: 0.1rem solid
-    ${(props) =>
-      props.value ? props.theme.colors.primary : props.theme.colors.gray};
-  border-radius: 0.4rem;
-`;
-
-const Input = styled.input<CheckBoxType>`
-  appearance: none;
-  width: 0;
-  height: 0;
-  padding: 0;
-  margin: 0;
-  border: none;
-  background-color: transparent;
-  opacity: 0;
-  position: absolute;
-`;
