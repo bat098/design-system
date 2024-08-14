@@ -13,4 +13,8 @@ export const theme: DefaultTheme = {
     info: '#03a9f4',
     warn: '#ffa500',
   },
+  base: {
+    borderRadius: '1.5rem',
+  },
+  componentsProps: {},
 };

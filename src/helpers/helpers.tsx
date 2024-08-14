@@ -1,5 +1,6 @@
 import Color from 'color';
 import { theme } from '../theme';
+import { componentsProps } from '../@types/styled';
 
 /**
  * The base class for controls that can be rendered.
@@ -36,4 +37,28 @@ export const getTextColorForBackground = (backgroundColor: string): string => {
   return bgColor.contrast(white) > bgColor.contrast(black)
     ? theme.colors.white
     : theme.colors.black;
+};
+
+/**
+ * Retrieves the default properties for a given component based on the component name.
+ *
+ * @param componentName - The name of the component for which the default properties are to be retrieved.
+ * The `componentName` should be one of the keys of the `componentsProps` type.
+ * - `"TextArea"`: Default properties of the TextArea component.
+ * - `"Button"`: Default properties of the Button component.
+ *
+ * @returns The default properties for the specified component, as defined in the theme's `componentsProps`.
+ * If the component name does not exist in `componentsProps`, the function may return `undefined`.
+ *
+ * @example
+ * ```typescript
+ * const textAreaProps = getDefaultPropsFromTheme("TextArea");
+ * const buttonProps = getDefaultPropsFromTheme("Button");
+ * ```
+ */
+
+export const getDefaultPropsFromTheme = (
+  componentName: keyof componentsProps
+) => {
+  return theme.componentsProps[componentName];
 };
