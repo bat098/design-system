@@ -14,9 +14,10 @@ export const theme: DefaultTheme = {
     warn: '#ffa500',
   },
   base: {
-    borderRadius: '1.5rem',
+    borderRadius: '0.4rem',
   },
   componentsProps: {
     TextArea: {},
+    Select: {},
   },
 };

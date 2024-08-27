@@ -2,10 +2,12 @@
 
 import 'styled-components';
 import { TextareaProps } from '../components/Textarea/Textarea.types';
+import { SelectProps } from '../components/Select/Select.types';
 
 export type componentsProps = {
   TextArea?: TextareaProps;
   Button?: ButtonProps;
+  Select?: SelectProps;
 };
 
 export type Colors = {
@@ -27,5 +29,8 @@ declare module 'styled-components' {
   export interface DefaultTheme {
     colors: Colors;
     componentsProps: componentsProps;
+    base: {
+      borderRadius: string;
+    };
   }
 }

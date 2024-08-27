@@ -60,5 +60,5 @@ export const getTextColorForBackground = (backgroundColor: string): string => {
 export const getDefaultPropsFromTheme = (
   componentName: keyof componentsProps
 ) => {
-  return theme.componentsProps[componentName];
+  return theme?.componentsProps[componentName] || {};
 };
