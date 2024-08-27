@@ -16,5 +16,7 @@ export const theme: DefaultTheme = {
   base: {
     borderRadius: '1.5rem',
   },
-  componentsProps: {},
+  componentsProps: {
+    TextArea: {},
+  },
 };

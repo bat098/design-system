@@ -1,7 +1,7 @@
 import { TextareaProps } from './Textarea.types';
 
 export const textareaDefaultProps: TextareaProps = {
-  rows: 13,
+  rows: 5,
   disabled: false,
   resize: 'vertical',
   placeholder: '',
