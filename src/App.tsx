@@ -1,24 +1,20 @@
-import { useState } from 'react';
-import Select from './components/Select/Select';
-import { SelectProps } from './components/Select/Select.types';
-
-const options: SelectProps['options'] = [
-  {
-    label: 'red',
-    value: 'red',
-  },
-  {
-    label: 'blue',
-    value: 'blue',
-  },
-];
+import { useEffect, useRef, useState } from 'react';
+import Switch from './components/Switch/Switch';
 
 const App = () => {
-  const [value, setValue] = useState(options[0].value);
+  const [value, setValue] = useState(true);
 
-  const handleOnChange = (e: string) => {
-    setValue(e);
+  const handleOnChange = () => {
+    setValue((prev) => !prev);
   };
+
+  const ref = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (ref.current) {
+      console.log(ref.current.checked);
+    }
+  }, [ref]);
   return (
     <>
       <div
@@ -29,23 +25,11 @@ const App = () => {
           margin: '20px',
         }}
       >
-        <Select
-          options={options}
-          value={value}
+        <Switch
+          checked={value}
           onChange={handleOnChange}
-          size="small"
-        />
-        <Select
-          options={options}
-          value={value}
-          onChange={handleOnChange}
-          size="medium"
-        />
-        <Select
-          options={options}
-          value={value}
-          onChange={handleOnChange}
-          size="large"
+          color="success"
+          innerRef={ref}
         />
       </div>
     </>
