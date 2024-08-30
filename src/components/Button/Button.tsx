@@ -1,9 +1,16 @@
 import styled, { css } from 'styled-components';
 import { ButtonProps } from './Button.types';
-import { getTextColorForBackground } from '../../helpers/helpers';
+import {
+  getDefaultPropsFromTheme,
+  getTextColorForBackground,
+} from '../../helpers/helpers';
 import Color from 'color';
 
 const Button = (props: ButtonProps) => {
+  const defaultPropsFromTheme = getDefaultPropsFromTheme('Button');
+
+  const mergedProps = { ...props, ...defaultPropsFromTheme };
+
   const {
     type = 'button',
     variant = 'contained',
@@ -12,9 +19,8 @@ const Button = (props: ButtonProps) => {
     iconStart,
     iconEnd,
     children,
-
     ...rest
-  } = props;
+  } = mergedProps;
 
   return (
     <StyledButton

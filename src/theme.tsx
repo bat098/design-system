@@ -20,5 +20,6 @@ export const theme: DefaultTheme = {
     TextArea: {},
     Select: {},
     Switch: {},
+    Button: {},
   },
 };
