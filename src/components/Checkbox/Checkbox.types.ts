@@ -1,20 +1,28 @@
 import { RuleSet } from 'styled-components';
-import { Colors, Size } from '../../@types/styled';
-import { ExcludeKeys, PickAttributeFromHTMLElement } from './../../types';
+import { BaseColors, Size } from '../../@types/styled';
+import { PickAttributeFromHTMLElement } from './../../types';
 
-export type CheckBoxType = {
-  value?: boolean;
+export interface CheckBoxProps {
+  checked?: boolean;
   onChange?: PickAttributeFromHTMLElement<'input', 'onChange'>;
   id?: PickAttributeFromHTMLElement<'input', 'id'>;
   size?: Size;
   disabled?: boolean;
   isError?: boolean;
-  color?: keyof ExcludeKeys<Colors, 'white' | 'lightGray'>;
-};
+  color?: keyof BaseColors;
+  innerRef?: React.RefObject<HTMLInputElement>;
+}
 
-export type CustomInpuType = Pick<
-  CheckBoxType,
-  'size' | 'value' | 'disabled' | 'isError' | 'color'
->;
+export interface CustomInpuProps
+  extends Pick<
+    CheckBoxProps,
+    'size' | 'checked' | 'disabled' | 'isError' | 'color'
+  > {}
+
+export interface InputProps
+  extends Pick<
+    CheckBoxProps,
+    'innerRef' | 'checked' | 'onChange' | 'disabled'
+  > {}
 
 export type PickSizeType = (size: Size | undefined) => RuleSet<object>;

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import Switch from './components/Switch/Switch';
+import Checkbox from './components/Checkbox/Checkbox';
 
 const App = () => {
   const [value, setValue] = useState(true);
@@ -25,7 +25,12 @@ const App = () => {
           margin: '20px',
         }}
       >
-        <Switch checked={value} onChange={handleOnChange} innerRef={ref} />
+        {/* <Switch checked={value} onChange={handleOnChange} innerRef={ref} /> */}
+        <Checkbox
+          // innerRef={ref}
+          checked={value}
+          onChange={handleOnChange}
+        />
       </div>
     </>
   );

@@ -1,40 +1,28 @@
-import { CheckBoxType } from './Checkbox.types';
+import { CheckBoxProps } from './Checkbox.types';
 import { VscCheck } from 'react-icons/vsc';
-import { useRef } from 'react';
-import { CustomInput, Input, Wrapper } from './Checkbox.styled';
 
-const Checkbox = (props: CheckBoxType) => {
+import { CustomInput, Input, Wrapper } from './Checkbox.styled';
+import { getDefaultPropsFromTheme } from '../../helpers/helpers';
+
+const Checkbox = (props: CheckBoxProps) => {
+  const defaultPropsFromTheme = getDefaultPropsFromTheme('CheckBox');
+
+  const mergedProps = { ...props, ...defaultPropsFromTheme };
   const {
     disabled = false,
-    value = false,
-    onChange,
+    checked = false,
+    onChange = () => {},
     size = 'medium',
     isError = false,
     color = 'primary',
+    innerRef = null,
     ...rest
-  } = props;
-
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  const handleClick = () => {
-    if (inputRef.current) {
-      inputRef.current.click();
-    }
-  };
+  } = mergedProps;
 
   return (
-    <Wrapper onClick={handleClick}>
-      <Input
-        ref={inputRef}
-        id={props.id}
-        type="checkbox"
-        checked={value}
-        onChange={onChange}
-        disabled={disabled}
-        {...rest}
-      />
+    <Wrapper>
       <CustomInput
-        value={value}
+        checked={checked}
         size={size}
         disabled={disabled}
         isError={isError}
@@ -42,6 +30,15 @@ const Checkbox = (props: CheckBoxType) => {
       >
         <VscCheck />
       </CustomInput>
+      <Input
+        ref={innerRef}
+        id={props.id}
+        type="checkbox"
+        checked={checked}
+        onChange={onChange}
+        disabled={disabled}
+        {...rest}
+      />
     </Wrapper>
   );
 };

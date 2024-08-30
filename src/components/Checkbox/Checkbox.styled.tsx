@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { CheckBoxType, CustomInpuType, PickSizeType } from './Checkbox.types';
+import { CustomInpuProps, InputProps, PickSizeType } from './Checkbox.types';
 
 const disabledStyle = css`
   opacity: 0.4;
@@ -45,10 +45,10 @@ export const Wrapper = styled.div`
   position: relative;
 `;
 
-export const CustomInput = styled.div<CustomInpuType>`
+export const CustomInput = styled.div<CustomInpuProps>`
   color: ${(props) => props.theme.colors.white};
   background-color: ${(props) =>
-    props.value
+    props.checked
       ? props.color
         ? props.theme.colors[props.color]
         : props.theme.colors.primary
@@ -58,7 +58,7 @@ export const CustomInput = styled.div<CustomInpuType>`
   justify-content: center;
   border: 0.1rem solid
     ${(props) =>
-      props.value
+      props.checked
         ? props.color
           ? props.theme.colors[props.color]
           : props.theme.colors.primary
@@ -67,16 +67,25 @@ export const CustomInput = styled.div<CustomInpuType>`
   ${(props) => pickSizeStyle(props.size)}
   ${(props) => props.disabled && disabledStyle}
   ${(props) => props.isError && errorStyle}
+  position: relative;
+  z-index: 1;
 `;
 
-export const Input = styled.input<CheckBoxType>`
+export const Input = styled.input<InputProps>`
   appearance: none;
-  width: 0;
-  height: 0;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   padding: 0;
   margin: 0;
   border: none;
   background-color: transparent;
   opacity: 0;
-  position: absolute;
+  cursor: pointer;
+  &:disabled {
+    cursor: not-allowed;
+  }
 `;

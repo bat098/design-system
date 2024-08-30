@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Row from '../Decorators/Row/Row';
 import Checkbox from './Checkbox';
-import { CheckBoxType } from './Checkbox.types';
+import { CheckBoxProps } from './Checkbox.types';
 
 const meta: Meta<typeof Checkbox> = {
   component: Checkbox,
   title: 'Components/Checkbox',
   args: {
-    value: true,
+    checked: true,
   },
   argTypes: {
     disabled: {
@@ -30,7 +30,7 @@ const meta: Meta<typeof Checkbox> = {
         disable: true,
       },
     },
-    value: {
+    checked: {
       table: {
         disable: true,
       },
@@ -51,16 +51,14 @@ export default meta;
 
 type Story = StoryObj<typeof Checkbox>;
 
-const sizes: CheckBoxType['size'][] = ['small', 'medium', 'large'];
-const colors: CheckBoxType['color'][] = [
+const sizes: CheckBoxProps['size'][] = ['small', 'medium', 'large'];
+const colors: CheckBoxProps['color'][] = [
   'primary',
   'secondary',
   'success',
   'danger',
   'info',
   'warn',
-  'black',
-  'gray',
 ];
 
 export const Base: Story = {
@@ -70,10 +68,10 @@ export const Base: Story = {
     </Row>
   ),
   args: {
-    value: true,
+    checked: true,
   },
   argTypes: {
-    value: {
+    checked: {
       table: {
         disable: false,
       },
@@ -144,7 +142,7 @@ export const Error: Story = {
     </Row>
   ),
   args: {
-    value: false,
+    checked: false,
     isError: true,
   },
   argTypes: {

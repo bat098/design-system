@@ -1,3 +1,4 @@
+import { CheckBoxProps } from './../components/Checkbox/Checkbox.types';
 // import original module declarations
 
 import 'styled-components';
@@ -11,6 +12,7 @@ export type componentsProps = {
   Button?: ButtonProps | object;
   Select?: SelectProps | object;
   Switch?: SwitchProps | object;
+  CheckBox?: CheckBoxProps | object;
 };
 
 export type Colors = {
