@@ -13,7 +13,6 @@ const colors: ButtonProps['color'][] = [
   'danger',
   'info',
   'warn',
-  'black',
 ];
 
 const variants: ButtonProps['variant'][] = ['contained', 'outlined'];

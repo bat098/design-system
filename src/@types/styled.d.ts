@@ -26,6 +26,11 @@ export type Colors = {
   warn: string;
 };
 
+export type BaseColors = Pick<
+  Colors,
+  'primary' | 'secondary' | 'success' | 'danger' | 'info' | 'warn'
+>;
+
 export type Size = 'small' | 'medium' | 'large';
 
 declare module 'styled-components' {
