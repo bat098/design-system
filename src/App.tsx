@@ -25,12 +25,7 @@ const App = () => {
           margin: '20px',
         }}
       >
-        <Switch
-          checked={value}
-          onChange={handleOnChange}
-          color="success"
-          innerRef={ref}
-        />
+        <Switch checked={value} onChange={handleOnChange} innerRef={ref} />
       </div>
     </>
   );

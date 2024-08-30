@@ -19,5 +19,6 @@ export const theme: DefaultTheme = {
   componentsProps: {
     TextArea: {},
     Select: {},
+    Switch: {},
   },
 };

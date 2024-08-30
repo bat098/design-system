@@ -3,11 +3,14 @@
 import 'styled-components';
 import { TextareaProps } from '../components/Textarea/Textarea.types';
 import { SelectProps } from '../components/Select/Select.types';
+import { SwitchProps } from '../components/Switch/Switch.types';
+import { ButtonProps } from '../components/Button/Button.types';
 
 export type componentsProps = {
-  TextArea?: TextareaProps;
-  Button?: ButtonProps;
-  Select?: SelectProps;
+  TextArea?: TextareaProps | object;
+  Button?: ButtonProps | object;
+  Select?: SelectProps | object;
+  Switch?: SwitchProps | object;
 };
 
 export type Colors = {

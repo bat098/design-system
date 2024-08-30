@@ -1,7 +1,11 @@
 import { Ball, Root, Wrapper } from './Switch.styled';
 import { SwitchProps } from './Switch.types';
+import { getDefaultPropsFromTheme } from '../../helpers/helpers';
+
+const defaultPropsFromTheme = getDefaultPropsFromTheme('Switch');
 
 const Switch = (props: SwitchProps) => {
+  const mergedProps: SwitchProps = { ...defaultPropsFromTheme, ...props };
   const {
     size = 'medium',
     color = 'primary',
@@ -9,7 +13,7 @@ const Switch = (props: SwitchProps) => {
     onChange = () => {},
     disabled = false,
     innerRef = null,
-  } = props;
+  } = mergedProps;
 
   return (
     <Wrapper color={color} size={size} checked={checked} disabled={disabled}>
