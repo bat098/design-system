@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { RadioBoxType, CustomInpuType, PickSizeType } from './RadioBox.types';
+import { InputProps, CustomInpupProps, PickSizeType } from './RadioBox.types';
 
 const disabledStyle = css`
   opacity: 0.4;
@@ -43,9 +43,12 @@ const pickSizeStyle: PickSizeType = (size) => {
 
 export const Wrapper = styled.div`
   position: relative;
+  display: inline-flex;
+  gap: 1rem;
+  cursor: pointer;
 `;
 
-export const CustomInput = styled.div<CustomInpuType>`
+export const CustomInput = styled.div<CustomInpupProps>`
   color: ${(props) => props.theme.colors.white};
   background-color: ${(props) =>
     props.checked
@@ -69,14 +72,20 @@ export const CustomInput = styled.div<CustomInpuType>`
   ${(props) => props.isError && errorStyle}
 `;
 
-export const Input = styled.input<RadioBoxType>`
+export const Input = styled.input<InputProps>`
   appearance: none;
-  width: 0;
-  height: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
   padding: 0;
   margin: 0;
   border: none;
   background-color: transparent;
   opacity: 0;
-  position: absolute;
+  cursor: pointer;
+  &:disabled {
+    cursor: not-allowed;
+  }
 `;

@@ -1,9 +1,12 @@
-import { RadioBoxType } from './RadioBox.types';
+import { RadioBoxProps } from './RadioBox.types';
 import { VscCheck } from 'react-icons/vsc';
-import { useRef } from 'react';
 import { CustomInput, Input, Wrapper } from './RadioBox.styled';
+import { getDefaultPropsFromTheme } from '../../helpers/helpers';
 
-const RadioBox = (props: RadioBoxType) => {
+const RadioBox = (props: RadioBoxProps) => {
+  const defaultPropsFromTheme = getDefaultPropsFromTheme('CheckBox');
+
+  const mergedProps = { ...defaultPropsFromTheme, ...props };
   const {
     disabled = false,
     value = '',
@@ -12,28 +15,23 @@ const RadioBox = (props: RadioBoxType) => {
     isError = false,
     color = 'primary',
     checked = false,
-    ...rest
-  } = props;
-
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  const handleClick = () => {
-    if (inputRef.current) {
-      inputRef.current.click();
-    }
-  };
+    innerRef = null,
+    id = '',
+    name = '',
+    label = '',
+  } = mergedProps;
 
   return (
-    <Wrapper onClick={handleClick}>
+    <Wrapper>
       <Input
-        ref={inputRef}
-        id={props.id}
+        id={id}
+        ref={innerRef}
         type="radio"
         value={value}
+        checked={checked}
         onChange={onChange}
         disabled={disabled}
-        checked={checked}
-        {...rest}
+        name={name}
       />
       <CustomInput
         value={value}
@@ -45,6 +43,7 @@ const RadioBox = (props: RadioBoxType) => {
       >
         <VscCheck />
       </CustomInput>
+      {label}
     </Wrapper>
   );
 };

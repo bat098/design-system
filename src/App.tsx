@@ -1,20 +1,25 @@
-import { useEffect, useRef, useState } from 'react';
-import Checkbox from './components/Checkbox/Checkbox';
+import { useState } from 'react';
+import { RadioBoxGroupProps } from './components/RadioBoxGroup/RadioBoxGroup.types';
+import RadioBox from './components/RadioBox/RadioBox';
 
 const App = () => {
-  const [value, setValue] = useState(true);
+  const items: RadioBoxGroupProps['items'] = [
+    {
+      value: 'apple',
+      label: 'apple',
+    },
+    {
+      value: 'orange',
+      label: 'orange',
+    },
+  ];
 
-  const handleOnChange = () => {
-    setValue((prev) => !prev);
+  const [val, setVal] = useState(items[1].value);
+
+  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setVal(e.target.value);
   };
 
-  const ref = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    if (ref.current) {
-      console.log(ref.current.checked);
-    }
-  }, [ref]);
   return (
     <>
       <div
@@ -25,12 +30,16 @@ const App = () => {
           margin: '20px',
         }}
       >
-        {/* <Switch checked={value} onChange={handleOnChange} innerRef={ref} /> */}
-        <Checkbox
-          // innerRef={ref}
-          checked={value}
-          onChange={handleOnChange}
-        />
+        {items.map(({ value, label }, index) => (
+          <RadioBox
+            key={index}
+            label={label}
+            value={value}
+            checked={value === val}
+            onChange={handleOnChange}
+            name="fruit"
+          />
+        ))}
       </div>
     </>
   );

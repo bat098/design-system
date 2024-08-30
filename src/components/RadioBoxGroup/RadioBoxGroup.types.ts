@@ -1,15 +1,15 @@
-import { RadioBoxType } from '../RadioBox/RadioBox.types';
+import { RadioBoxProps } from '../RadioBox/RadioBox.types';
 
 export type SignleRadioBox = Pick<
-  RadioBoxType,
+  RadioBoxProps,
   'label' | 'value' | 'color' | 'size'
 >;
 
-export type RadioBoxGroupType = {
+export interface RadioBoxGroupProps {
   items: SignleRadioBox[];
-  name?: string;
+  name: string;
   value: string;
-  onChange?: React.Dispatch<React.SetStateAction<string>>;
-};
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
+}
 
 export type HandleChangeType = (e: React.ChangeEvent<HTMLInputElement>) => void;

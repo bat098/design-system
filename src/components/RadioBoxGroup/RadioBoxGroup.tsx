@@ -1,13 +1,10 @@
 import RadioBox from '../RadioBox/RadioBox';
 import { Root, Row } from './Radio.styled';
-import { HandleChangeType, RadioBoxGroupType } from './RadioBoxGroup.types';
+import { RadioBoxGroupProps } from './RadioBoxGroup.types';
 
-const RadioBoxGroup = (props: RadioBoxGroupType) => {
-  const { onChange = () => {}, value: val, items = [], name = '' } = props;
+const RadioBoxGroup = (props: RadioBoxGroupProps) => {
+  const { onChange = () => {}, value: val = '', items = [], name = '' } = props;
 
-  const handleChange: HandleChangeType = (e) => {
-    onChange(e.target.value);
-  };
   return (
     <Root>
       {items.map(({ label, value, color, size }, index) => (
@@ -18,10 +15,10 @@ const RadioBoxGroup = (props: RadioBoxGroupType) => {
             name={name}
             key={index}
             value={value}
-            onChange={handleChange}
+            onChange={onChange}
             checked={val === value}
+            label={label}
           />
-          {label}
         </Row>
       ))}
     </Root>

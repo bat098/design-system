@@ -9,5 +9,4 @@ export const Root = styled.div`
 export const Row = styled.label`
   display: inline-flex;
   gap: 1rem;
-  cursor: pointer;
 `;

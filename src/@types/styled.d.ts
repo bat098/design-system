@@ -1,3 +1,4 @@
+import { RadioBoxProps } from './../components/RadioBox/RadioBox.types';
 import { CheckBoxProps } from './../components/Checkbox/Checkbox.types';
 // import original module declarations
 
@@ -13,6 +14,7 @@ export type componentsProps = {
   Select?: SelectProps | object;
   Switch?: SwitchProps | object;
   CheckBox?: CheckBoxProps | object;
+  RadioBox?: RadioBoxProps | object;
 };
 
 export type Colors = {
