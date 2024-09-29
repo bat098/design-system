@@ -12,4 +12,5 @@ const Root = styled.div`
   flex-direction: column;
   gap: 4rem;
   flex: 1;
+  align-items: center;
 `;
