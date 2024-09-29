@@ -25,16 +25,29 @@ const containedStyle = css<ButtonProps>`
     props.color
       ? getTextColorForBackground(props.theme.colors[props.color])
       : getTextColorForBackground(props.theme.colors.primary)};
-  &:not(:disabled):hover {
-    background-color: ${(props) =>
-      props.color
-        ? Color(props.theme.colors[props.color]).darken(0.15).hex()
-        : Color(props.theme.colors.primary).darken(0.15).hex()};
-    border: 0.1rem solid
-      ${(props) =>
+  &:not(:disabled) {
+    &:hover {
+      background-color: ${(props) =>
         props.color
           ? Color(props.theme.colors[props.color]).darken(0.15).hex()
           : Color(props.theme.colors.primary).darken(0.15).hex()};
+      border: 0.1rem solid
+        ${(props) =>
+          props.color
+            ? Color(props.theme.colors[props.color]).darken(0.15).hex()
+            : Color(props.theme.colors.primary).darken(0.15).hex()};
+    }
+    &:active {
+      background-color: ${(props) =>
+        props.color
+          ? Color(props.theme.colors[props.color]).darken(0.3).hex()
+          : Color(props.theme.colors.primary).darken(0.3).hex()};
+      border: 0.1rem solid
+        ${(props) =>
+          props.color
+            ? Color(props.theme.colors[props.color]).darken(0.3).hex()
+            : Color(props.theme.colors.primary).darken(0.3).hex()};
+    }
   }
 `;
 
