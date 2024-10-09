@@ -7,6 +7,12 @@ import { TextareaProps } from '../components/Textarea/Textarea.types';
 import { SelectProps } from '../components/Select/Select.types';
 import { SwitchProps } from '../components/Switch/Switch.types';
 import { ButtonProps } from '../components/Button/Button.types';
+import { CardInterface } from '../components/Card/Card.types';
+import { CardHeaderInterface } from '../components/CardHeader/CardHeader.types';
+import { CardBodyInterface } from '../components/CardBody/CardBody.types';
+import { CardFooterInterface } from '../components/CardFooter/CardFooter.types';
+import { DividerInterface } from '../components/Divider/Divider.types';
+import { HeaderInterface } from '../components/Header/Header.types';
 
 export type componentsProps = {
   TextArea?: TextareaProps | object;
@@ -15,6 +21,12 @@ export type componentsProps = {
   Switch?: SwitchProps | object;
   CheckBox?: CheckBoxProps | object;
   RadioBox?: RadioBoxProps | object;
+  Card?: CardInterface | object;
+  CardHeader?: CardHeaderInterface | object;
+  CardBody?: CardBodyInterface | object;
+  CardFooter?: CardFooterInterface | object;
+  Divider?: DividerInterface | object;
+  Header?: HeaderInterface | object;
 };
 
 export type Colors = {
@@ -43,6 +55,7 @@ declare module 'styled-components' {
     componentsProps: componentsProps;
     base: {
       borderRadius: string;
+      boxShadow: string;
     };
   }
 }

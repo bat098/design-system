@@ -15,11 +15,18 @@ export const theme: DefaultTheme = {
   },
   base: {
     borderRadius: '0.4rem',
+    boxShadow: '0.1rem 0.1rem 0.2rem 0.1rem rgba(0,0,0, 0.1)',
   },
   componentsProps: {
     TextArea: {},
     Select: {},
     Switch: {},
     Button: {},
+    Card: {},
+    CardHeader: {},
+    CardBody: {},
+    CardFooter: {},
+    Divider: {},
+    Header: {},
   },
 };
