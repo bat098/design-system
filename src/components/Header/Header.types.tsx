@@ -1,6 +1,6 @@
 import { RuleSet } from 'styled-components';
 import { IStyledComponentBase, Substitute } from 'styled-components/dist/types';
-import { BaseColors } from '../../@types/styled';
+import { Colors } from '../../@types/styled';
 
 export type componenetType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
@@ -8,7 +8,7 @@ export interface HeaderInterface {
   children: React.ReactNode;
   component?: componenetType;
   variant?: componenetType;
-  color?: keyof BaseColors;
+  color?: keyof Colors;
 }
 
 export type PickVariantStyles = (
