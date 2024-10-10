@@ -2,28 +2,28 @@ import styled, { css } from 'styled-components';
 import { componenetType, HeaderInterface, stylesType } from './Header.types';
 
 export const StyledH1 = css`
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  font-size: 4rem;
+  margin-bottom: 2rem;
 `;
 export const StyledH2 = css`
-  font-size: 1.8rem;
-  margin-bottom: 0.9rem;
+  font-size: 3.6rem;
+  margin-bottom: 1.8rem;
 `;
 export const StyledH3 = css`
-  font-size: 1.6rem;
-  margin-bottom: 0.8rem;
+  font-size: 3.2rem;
+  margin-bottom: 1.6rem;
 `;
 export const StyledH4 = css`
-  font-size: 1.4rem;
-  margin-bottom: 0.7rem;
+  font-size: 2.8rem;
+  margin-bottom: 1.4rem;
 `;
 export const StyledH5 = css`
-  font-size: 1.2rem;
-  margin-bottom: 0.6rem;
+  font-size: 2.4rem;
+  margin-bottom: 1.2rem;
 `;
 export const StyledH6 = css`
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  margin-bottom: 1rem;
 `;
 
 const styles: stylesType = {
