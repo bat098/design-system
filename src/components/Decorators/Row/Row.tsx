@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { RowProps } from './Row.types';
 
-const Row = ({ children }: RowProps) => {
-  return <Root>{children}</Root>;
+const Row = ({ children, style }: RowProps) => {
+  return <Root style={style}>{children}</Root>;
 };
 
 export default Row;
