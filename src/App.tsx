@@ -1,31 +1,28 @@
-import Card from './components/Card/Card';
-import CardBody from './components/CardBody/CardBody';
-import CardFooter from './components/CardFooter/CardFooter';
-import CardHeader from './components/CardHeader/CardHeader';
+import { useState } from 'react';
+import Button from './components/Button/Button';
+import Collapse from './components/Collapse/Collapse';
 import Col from './components/Decorators/Col/Col';
 import Row from './components/Decorators/Row/Row';
-import Divider from './components/Divider/Divider';
-import Header from './components/Header/Header';
+import Card from './components/Card/Card';
+import CardBody from './components/CardBody/CardBody';
+import CardHeader from './components/CardHeader/CardHeader';
 
 const App = () => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <Col>
-      <Row>
+      <Row style={{ display: 'flex', flexDirection: 'column' }}>
         <Card>
           <CardHeader>
-            <Header component="h1">Tutuł karty</Header>
-            <Header component="h1" variant="h2" color="info">
-              Tutuł karty
-            </Header>
-            <Header component="h3">Tutuł karty</Header>
-            <Header component="h4">Tutuł karty</Header>
-            <Header component="h5">Tutuł karty</Header>
-            <Header component="h6">Tutuł karty</Header>
+            <Button onClick={() => setIsOpen((prev) => !prev)}>Toggle</Button>
           </CardHeader>
-          <Divider color="danger" />
-          <CardBody>Laborum sit aliqua laboris do elit eu dolore.</CardBody>
-          <Divider color="success" />
-          <CardFooter>Footer karty</CardFooter>
+          <Collapse isOpen={isOpen}>
+            <CardBody>
+              Sint sit est veniam minim ut in ad. Exercitation enim Lorem
+              commodo aliquip tempor eiusmod. Sint laboris quis ullamco aliqua
+              sunt ad ullamco in.
+            </CardBody>
+          </Collapse>
         </Card>
       </Row>
     </Col>
