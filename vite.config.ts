@@ -11,5 +11,15 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: './src/test/setup.ts',
+    coverage: {
+      provider: 'istanbul',
+      reporter: ['text', 'json', 'html'],
+      include: ['src/**'],
+      exclude: [
+        '**/*styled.{ts,tsx}',
+        '**/*stories.{ts,tsx}',
+        '**/*.test.{ts,tsx}',
+      ],
+    },
   },
 });

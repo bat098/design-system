@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import { theme } from '../../theme';
 
 describe('Badge', () => {
-  test('Render children correctly', () => {
+  test('render children correctly', () => {
     render(
       <ThemeProvider theme={theme}>
         <Badge>Hello</Badge>
