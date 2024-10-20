@@ -1,15 +1,9 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen } from '../../test-utils';
 import Badge from './Badge';
-import { ThemeProvider } from 'styled-components';
-import { theme } from '../../theme';
 
 describe('Badge', () => {
   test('render children correctly', () => {
-    render(
-      <ThemeProvider theme={theme}>
-        <Badge>Hello</Badge>
-      </ThemeProvider>
-    );
+    render(<Badge>Hello</Badge>);
     const badge = screen.getByText('Hello');
     expect(badge).toBeInTheDocument();
   });

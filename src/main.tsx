@@ -2,19 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.tsx';
 
-import { StyleSheetManager, ThemeProvider } from 'styled-components';
+import { StyleSheetManager } from 'styled-components';
 import isPropValid from '@emotion/is-prop-valid';
 
-import { theme } from './theme.tsx';
 import GlobalStyle from './GlobalStyle.tsx';
+import { AppProviders } from './providers/AppProviders.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <StyleSheetManager shouldForwardProp={isPropValid}>
-      <ThemeProvider theme={theme}>
+      <AppProviders>
         <GlobalStyle />
         <App />
-      </ThemeProvider>
+      </AppProviders>
     </StyleSheetManager>
   </React.StrictMode>
 );
