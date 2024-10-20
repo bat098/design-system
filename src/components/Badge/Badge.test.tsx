@@ -1,5 +1,6 @@
-import { render, screen } from '../../test-utils';
-import Badge from './Badge';
+import { screen } from '@testing-library/dom';
+import { render } from '@/test-utils';
+import Badge from '@/components/Badge/Badge';
 
 describe('Badge', () => {
   test('render children correctly', () => {

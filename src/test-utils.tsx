@@ -7,7 +7,4 @@ const customRender = (
   options?: Omit<RenderOptions, 'wrapper'>
 ) => render(ui, { wrapper: AppProviders, ...options });
 
-/* eslint-disable react-refresh/only-export-components */
-export * from '@testing-library/react';
-/* eslint-enable react-refresh/only-export-components */
 export { customRender as render };
