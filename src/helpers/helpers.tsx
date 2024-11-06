@@ -21,7 +21,7 @@ export const sayHello = () => {
  *
  * @example
  * ```typescript
- * const textColor = getTextColorForBackground('#ff5733');
+ * const textColor = getContrastColor('#ff5733');
  * console.log(textColor); // Outputs 'white' or 'black', depending on the contrast calculation
  * ```
  *
@@ -29,7 +29,7 @@ export const sayHello = () => {
  * The function relies on the `Color` library to compute color contrast and assumes the existence of a `theme` object with `colors.white` and `colors.black` properties.
  * Ensure that the `theme` object and `Color` library are properly imported and configured in your project.
  */
-export const getTextColorForBackground = (backgroundColor: string): string => {
+export const getContrastColor = (backgroundColor: string): string => {
   const white = Color(theme.colors.white);
   const black = Color(theme.colors.black);
   const bgColor = Color(backgroundColor);

@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { ButtonProps } from './Button.types';
-import { getTextColorForBackground } from '../../helpers/helpers';
+import { getContrastColor } from '../../helpers/helpers';
 import Color from 'color';
 
 const baseStyle = css<ButtonProps>`
@@ -23,8 +23,8 @@ const containedStyle = css<ButtonProps>`
     props.color ? props.theme.colors[props.color] : props.theme.colors.primary};
   color: ${(props) =>
     props.color
-      ? getTextColorForBackground(props.theme.colors[props.color])
-      : getTextColorForBackground(props.theme.colors.primary)};
+      ? getContrastColor(props.theme.colors[props.color])
+      : getContrastColor(props.theme.colors.primary)};
   &:not(:disabled) {
     &:hover {
       background-color: ${(props) =>

@@ -1,17 +1,22 @@
 import { DefaultTheme } from 'styled-components';
 
+const baseColors: DefaultTheme['baseColors'] = {
+  primary: '#1976d2',
+  secondary: '#9c27b0',
+  danger: '#d32f2f',
+  success: '#2e7d32',
+  info: '#03a9f4',
+  warn: '#ffa500',
+};
+
 export const theme: DefaultTheme = {
+  baseColors: baseColors,
   colors: {
-    primary: '#1976d2',
-    secondary: '#9c27b0',
-    danger: '#d32f2f',
-    success: '#2e7d32',
+    ...baseColors,
     white: '#ffffff',
     black: '#000000',
     lightGray: '#eeeeee',
     gray: '#cccccc',
-    info: '#03a9f4',
-    warn: '#ffa500',
   },
   base: {
     borderRadius: '0.4rem',

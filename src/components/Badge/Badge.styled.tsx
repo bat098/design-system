@@ -1,14 +1,14 @@
 import styled, { css } from 'styled-components';
 import { BadgeInterface } from './Badge.types';
-import { getTextColorForBackground } from '../../helpers/helpers';
+import { getContrastColor } from '../../helpers/helpers';
 
 const containedStyle = css<BadgeInterface>`
   background-color: ${(props) =>
     props.color ? props.theme.colors[props.color] : props.theme.colors.primary};
   color: ${(props) =>
     props.color
-      ? getTextColorForBackground(props.theme.colors[props.color])
-      : getTextColorForBackground(props.theme.colors.primary)};
+      ? getContrastColor(props.theme.colors[props.color])
+      : getContrastColor(props.theme.colors.primary)};
 `;
 
 const outlinedStyle = css<BadgeInterface>`

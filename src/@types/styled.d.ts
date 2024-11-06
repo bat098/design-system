@@ -49,9 +49,16 @@ export type BaseColors = Pick<
 
 export type Size = 'small' | 'medium' | 'large';
 
+export type VariantType = 'contained' | 'outlined';
+
+export type BaseSizesWithUndefinedType = Size | undefined;
+export type VaraintWithUndefinedType = VariantType | undefined;
+export type BaseColorsWithUndefinedType = keyof BaseColors | undefined;
+
 declare module 'styled-components' {
   export interface DefaultTheme {
     colors: Colors;
+    baseColors: BaseColors;
     componentsProps: componentsProps;
     base: {
       borderRadius: string;
